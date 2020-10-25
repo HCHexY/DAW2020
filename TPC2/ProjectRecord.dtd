@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!ELEMENT projectRecord (header, workteam, abstract, footer)>
+
+
+<!ELEMENT header (titles, supervisor)>
+<!ELEMENT titles (bigTitle,keyName,title,subtitle)>
+<!ELEMENT bigTitle (#PCDATA)>
+<!ELEMENT keyName (#PCDATA)>
+<!ELEMENT title (#PCDATA)>
+<!ELEMENT subtitle (#PCDATA)>
+
+<!ELEMENT supervisor (#PCDATA)>
+<!ATTLIST supervisor svRef CDATA #REQUIRED>
+
+<!ATTLIST projectRecord id ID #REQUIRED>
+<!ATTLIST header 
+    dateBegin CDATA #REQUIRED
+    dateEnd CDATA #REQUIRED>
+
+<!ELEMENT workteam (teammate+)>
+<!ELEMENT teammate (#PCDATA)>
+<!ATTLIST teammate tmmRef CDATA #REQUIRED>
+
+<!ELEMENT abstract (p+)>
+<!ELEMENT p (#PCDATA|i|b|u|ref)* >
+<!ELEMENT i (#PCDATA)>
+<!ELEMENT b (#PCDATA)>
+<!ELEMENT u (#PCDATA)>
+<!ELEMENT ref (#PCDATA)>
+<!ATTLIST ref link CDATA #REQUIRED>
+
+<!ELEMENT footer (deliverables?,pubDate)>
+<!ELEMENT deliverables (ref+)>
+<!ELEMENT pubDate (#PCDATA)>
