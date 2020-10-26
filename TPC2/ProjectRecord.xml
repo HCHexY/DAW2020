@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE projectRecord SYSTEM "ProjectRecord.dtd">
+<projectRecord id="ID000">
+    <header>
+        <dates begin="21/10/2020" end="28/10/2020"/>
+        <titles>
+            <bigTitle>Project Record</bigTitle>
+            <keyName>ProjecRecord</keyName>
+            <title>Schema DTD para elaboração de Project Records em XML</title>
+            <subtitle>Relatório inserido nos TPC's da unidade curricular de Desenvolvimento de Aplicações WEB</subtitle>
+        </titles>
+        <supervisor svRef="http://www.di.uminho.pt/~jcr">
+            José Carlos Ramalho
+        </supervisor>
+    </header>
+    <workteam>
+        <teammate numMecan="A84657" tmmRef="a84656@alunos.uminho.pt">
+            Hugo Manuel Cunha
+        </teammate>
+    </workteam>
+    <abstract>
+        <p>
+            Este trabalho demonstra uma forma de utilizar a linguagem <b>XML</b> para desenvolver uma possivel 
+            implementação de um ficheiro para armazenar e indexar teses e relatórios.       
+        </p>
+        <p>
+            Foi produzido um ficheiro <i>DTD</i> descritivo da estrutura a adotar.<br/>
+            Assim é possivel utilizar ferramentas para validar ou criar uma maquete de um ficheiro <b>XML</b> adequado.
+        </p>
+        <p>
+            O esquema suporta um header com as datas de inicio e fim, titulos e um supervisor;<br/>
+            Uma definição de equipa de trabalho com referencias de email dos colaboradores;<br/>
+            Um abstrato capaz de representar diferentes formatações de texto como <b>bold</b>,<i>itálico</i>,<br/>
+            <u>sublinhado</u> e quebras de linha em diferentes parágrafos com um possivel tamanho de letra proporcional á prioridade (5 por defeito);<br/>
+            E um footer com zona para referências e anexos e data de publicação do documento.
+        </p>
+    </abstract>
+    <footer>
+        <deliverables>
+            <ref link="ProjectRecord.dtd" type="DTD">
+               Esquema do Relatório
+            </ref>
+            <ref link="ProjectRecord.xsd" type="XSD">
+                XML Schema Definition utilizado para criar uma amostra a partir do DTD
+            </ref>
+            <ref link="instance1.xml" type="XML">
+                Amostra gerada automaticamente do DTD 
+            </ref>
+        </deliverables>
+        <pubDate>26/10/2020</pubDate>
+    </footer>
+</projectRecord>

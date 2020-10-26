@@ -2,7 +2,7 @@
 <!ELEMENT projectRecord (header, workteam, abstract, footer)>
 
 
-<!ELEMENT header (titles, supervisor)>
+<!ELEMENT header (dates,titles, supervisor)>
 <!ELEMENT titles (bigTitle,keyName,title,subtitle)>
 <!ELEMENT bigTitle (#PCDATA)>
 <!ELEMENT keyName (#PCDATA)>
@@ -10,25 +10,30 @@
 <!ELEMENT subtitle (#PCDATA)>
 
 <!ELEMENT supervisor (#PCDATA)>
+<!ELEMENT dates EMPTY>
+<!ATTLIST dates begin CDATA #REQUIRED
+                end CDATA #REQUIRED>
 <!ATTLIST supervisor svRef CDATA #REQUIRED>
 
 <!ATTLIST projectRecord id ID #REQUIRED>
-<!ATTLIST header 
-    dateBegin CDATA #REQUIRED
-    dateEnd CDATA #REQUIRED>
+
 
 <!ELEMENT workteam (teammate+)>
 <!ELEMENT teammate (#PCDATA)>
-<!ATTLIST teammate tmmRef CDATA #REQUIRED>
+<!ATTLIST teammate 
+    tmmRef CDATA #REQUIRED
+    numMecan CDATA #IMPLIED>
 
 <!ELEMENT abstract (p+)>
-<!ELEMENT p (#PCDATA|i|b|u|ref)* >
-<!ELEMENT i (#PCDATA)>
-<!ELEMENT b (#PCDATA)>
-<!ELEMENT u (#PCDATA)>
-<!ELEMENT ref (#PCDATA)>
-<!ATTLIST ref link CDATA #REQUIRED>
-
+<!ELEMENT p (#PCDATA|i|b|u|ref|br)* >
+<!ELEMENT i (#PCDATA|p|b|u|ref|br)*>
+<!ELEMENT b (#PCDATA|i|p|u|ref|br)*>
+<!ELEMENT u (#PCDATA|i|b|p|ref|br)*>
+<!ELEMENT br EMPTY >
+<!ELEMENT ref (#PCDATA|i|b|u)*>
+<!ATTLIST ref link CDATA #REQUIRED
+              type CDATA #REQUIRED>
+<!ATTLIST p sizePriority CDATA "5" >
 <!ELEMENT footer (deliverables?,pubDate)>
 <!ELEMENT deliverables (ref+)>
 <!ELEMENT pubDate (#PCDATA)>

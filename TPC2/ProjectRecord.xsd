@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:element name="projectRecord">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="header"/>
+        <xs:element ref="workteam"/>
+        <xs:element ref="abstract"/>
+        <xs:element ref="footer"/>
+      </xs:sequence>
+      <xs:attributeGroup ref="attlist.projectRecord"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="header">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="dates"/>
+        <xs:element ref="titles"/>
+        <xs:element ref="supervisor"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="titles">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="bigTitle"/>
+        <xs:element ref="keyName"/>
+        <xs:element ref="title"/>
+        <xs:element ref="subtitle"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="bigTitle" type="xs:string"/>
+  <xs:element name="keyName" type="xs:string"/>
+  <xs:element name="title" type="xs:string"/>
+  <xs:element name="subtitle" type="xs:string"/>
+  <xs:element name="supervisor">
+    <xs:complexType mixed="true">
+      <xs:attributeGroup ref="attlist.supervisor"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="dates">
+    <xs:complexType>
+      <xs:attributeGroup ref="attlist.dates"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attlist.dates">
+    <xs:attribute name="begin" use="required"/>
+    <xs:attribute name="end" use="required"/>
+  </xs:attributeGroup>
+  <xs:attributeGroup name="attlist.supervisor">
+    <xs:attribute name="svRef" use="required"/>
+  </xs:attributeGroup>
+  <xs:attributeGroup name="attlist.projectRecord">
+    <xs:attribute name="id" use="required" type="xs:ID"/>
+  </xs:attributeGroup>
+  <xs:element name="workteam">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="teammate"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="teammate">
+    <xs:complexType mixed="true">
+      <xs:attributeGroup ref="attlist.teammate"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attlist.teammate">
+    <xs:attribute name="tmmRef" use="required"/>
+    <xs:attribute name="numMecan"/>
+  </xs:attributeGroup>
+  <xs:element name="abstract">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="p"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="p">
+    <xs:complexType mixed="true">
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="i"/>
+        <xs:element ref="b"/>
+        <xs:element ref="u"/>
+        <xs:element ref="ref"/>
+        <xs:element ref="br"/>
+      </xs:choice>
+      <xs:attributeGroup ref="attlist.p"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="i">
+    <xs:complexType mixed="true">
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="p"/>
+        <xs:element ref="b"/>
+        <xs:element ref="u"/>
+        <xs:element ref="ref"/>
+        <xs:element ref="br"/>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="b">
+    <xs:complexType mixed="true">
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="i"/>
+        <xs:element ref="p"/>
+        <xs:element ref="u"/>
+        <xs:element ref="ref"/>
+        <xs:element ref="br"/>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="u">
+    <xs:complexType mixed="true">
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="i"/>
+        <xs:element ref="b"/>
+        <xs:element ref="p"/>
+        <xs:element ref="ref"/>
+        <xs:element ref="br"/>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="br">
+    <xs:complexType/>
+  </xs:element>
+  <xs:element name="ref">
+    <xs:complexType mixed="true">
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="i"/>
+        <xs:element ref="b"/>
+        <xs:element ref="u"/>
+      </xs:choice>
+      <xs:attributeGroup ref="attlist.ref"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attlist.ref">
+    <xs:attribute name="link" use="required"/>
+    <xs:attribute name="type" use="required"/>
+  </xs:attributeGroup>
+  <xs:attributeGroup name="attlist.p">
+    <xs:attribute name="sizePriority" default="5"/>
+  </xs:attributeGroup>
+  <xs:element name="footer">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="deliverables"/>
+        <xs:element ref="pubDate"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="deliverables">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="ref"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="pubDate" type="xs:string"/>
+</xs:schema>
