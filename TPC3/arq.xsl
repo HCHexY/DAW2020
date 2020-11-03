@@ -10,7 +10,7 @@
                     <title>Arquivo de Arqueossitios</title>
                     
                 </head>
-                <body>
+                <body style="font-family: arial,sans-serif;">
                     <h2>Arquivo de Arqueossitios</h2>
                     <h3>Indice</h3>
                     <ol>
@@ -35,6 +35,14 @@
             </a>
         </li>
     </xsl:template>
+   
+    <!-- Universal Templates  -->
+    
+    
+    <xsl:template match="LIGA" mode="#all" >
+        <a href="https://pt.wikipedia.org/wiki/{.[@TERMO]}" > <xsl:value-of select="."/> </a>
+    </xsl:template>
+    <!-- Content -->
     
     <xsl:template match="ARQELEM" mode="conteudo">
         <xsl:result-document href="site/{generate-id()}.html">
@@ -42,27 +50,33 @@
                 <head>
                     <title><xsl:value-of select="IDENTI"/></title>
                 </head>
-                <body>
+                <body  style="font-family: arial,sans-serif;">
                     <p><b>Nome:</b> <xsl:apply-templates select="IDENTI"/> </p>
                     <p><b>Descrição:</b> <xsl:apply-templates select="DESCRI"/> </p>
+                    <xsl:apply-templates select="TIPO" mode="conteudo"/>
+                    <xsl:apply-templates select="IMAGEM" mode="conteudo"/>
+                    <xsl:apply-templates select="CRONO" mode="conteudo"/>
                     <p><b>Local:</b>
                         <div style="margin: 20px" >
-                        Lugar: <xsl:apply-templates select="LUGAR" /><br/> 
-                        Freguesia: <xsl:apply-templates select="FREGUE" /><br/> 
-                        Concelho: <xsl:apply-templates select="CONCEL" /><br/> 
-                        Latitude: <xsl:apply-templates select="LATITU" /><br/> 
-                        Longitude: <xsl:apply-templates select="LONGIT" /><br/>
-                        Altitude: <xsl:apply-templates select="ALTITU" /><br/> 
+                            <b>Lugar</b>: <xsl:apply-templates select="LUGAR" mode="conteudo" /><br/> 
+                            <b>Freguesia</b>: <xsl:apply-templates select="FREGUE" mode="conteudo" /><br/> 
+                            <b>Concelho</b>: <xsl:apply-templates select="CONCEL" mode="conteudo" /><br/>
+                            <xsl:apply-templates select="LATITU" mode="conteudo"/>
+                            <xsl:apply-templates select="LONGIT" mode="conteudo"/>
+                            <xsl:apply-templates select="ALTITU" mode="conteudo"/>
                         </div>
                     </p>
+                    <xsl:apply-templates select="ACESSO" mode="conteudo"/>
+                    <xsl:apply-templates select="QUADRO" mode="conteudo"/>
+                    <xsl:apply-templates select="DEPOSI" mode="conteudo"/>
                     
-                    <p><b>Cronografia:</b> <xsl:apply-templates select="CRONO"/> </p>
-                    <p><b>Acessos:</b> <xsl:apply-templates select="ACESSO"/> </p>
-                    <p><b>Quadro:</b> <xsl:apply-templates select="QUADRO"/> </p>
-                    <p><b>Descrição arqueológica:</b> <xsl:apply-templates select="DESARQ"/> </p>
-                    <p><b>Trabalhos arqueológicos:</b> <xsl:apply-templates select="TRAARQ"/> </p>
-                    <p><b>Interpretação:</b> <xsl:apply-templates select="INTERP"/> </p>
-                    <p><b>Depósitos:</b> <xsl:apply-templates select="DEPOSI"/> </p>
+                    <xsl:apply-templates select="INTERP" mode="conteudo"/>
+                    
+                    <xsl:apply-templates select="INTERE" mode="conteudo" />
+                    
+                    <xsl:apply-templates select="DESARQ" mode="conteudo"/>
+                    
+                    <xsl:apply-templates select="TRAARQ" mode="conteudo"/>
                     <p><b>Bibliografia:</b> <ul><xsl:apply-templates select=".//BIBLIO"/></ul> </p>
                     <address>
                         [<a href="index.html#i{generate-id()}">Voltar á HOME</a>]
@@ -70,19 +84,75 @@
                     <center>
                         <hr width="90%"></hr>
                     </center>
+                    <footer>
+                        <xsl:apply-templates select="AUTOR" mode="conteudo"/>
+                    </footer>
                 </body>
             </html>
         </xsl:result-document>
     </xsl:template>
-    <xsl:template match="LIGA" mode="#all" >
-        <xsl:variable name="linkName" select="."/>
-        <a href="https://pt.wikipedia.org/wiki/{$linkName}" > <xsl:value-of select="."/> </a>
-    </xsl:template>
-    <xsl:template match="BIBLIO" mode="#all">
+    <xsl:template match="BIBLIO" mode="conteudo" >
         <li>
             <xsl:value-of select="."/>
         </li>
     </xsl:template>
-    
-    
+    <xsl:template match="IMAGEM" mode="conteudo" >  
+    <img src="{@NOME}" alt="https://img.favpng.com/18/9/15/computer-icons-archaeology-logo-font-png-favpng-huHVAV0XivXyFjQXTi3xRkKs8.jpg" /> <br/>
+        
+    </xsl:template>
+    <xsl:template match="DESCRI" mode="conteudo" >
+        <b>Descrição</b>:<xsl:apply-templates mode="conteudo"/><br/>
+    </xsl:template>
+    <xsl:template match="CRONO" mode="conteudo" >
+        <b>Cronologia</b>:<xsl:apply-templates mode="conteudo"/><br/>
+    </xsl:template>
+    <xsl:template match="LATITU" mode="conteudo" >
+        <b>Latitude</b>:<xsl:apply-templates mode="conteudo"/><br/>
+    </xsl:template>
+    <xsl:template match="LONGIT" mode="conteudo" >
+        <b>Longitude</b>:<xsl:apply-templates mode="conteudo"/><br/>
+    </xsl:template>
+    <xsl:template match="ALTITU" mode="conteudo" >
+        <b>Altitude</b>:<xsl:apply-templates mode="conteudo"/><br/>
+    </xsl:template>
+    <xsl:template match="ACESSO" mode="conteudo" >
+        <p>
+        <b>Acessos</b>:<xsl:apply-templates mode="conteudo"/>
+        </p>
+    </xsl:template>
+    <xsl:template match="QUADRO" mode="conteudo" >
+        <p>
+            <b>Quadro</b>:<xsl:apply-templates mode="conteudo"/>
+        </p>
+    </xsl:template>
+    <xsl:template match="AUTOR" mode="conteudo" >
+        <p>
+            <b><xsl:apply-templates mode="conteudo"/> :</b> <xsl:apply-templates select="../DATA" mode="conteudo"/>
+        </p>
+    </xsl:template>
+    <xsl:template match="DEPOSI" mode="conteudo" >
+        <p>
+            <b>Depósito</b>:<xsl:apply-templates mode="conteudo"/>
+        </p>
+    </xsl:template>
+    <xsl:template match="DESARQ" mode="conteudo" >
+        <p>
+            <b>Descrição arqueológica</b>:<xsl:apply-templates mode="conteudo"/>
+        </p>
+    </xsl:template>
+    <xsl:template match="TRAARQ" mode="conteudo" >
+        <p>
+            <b>Trabalhos de arqueologia</b>:<xsl:apply-templates mode="conteudo"/>
+        </p>
+    </xsl:template>
+    <xsl:template match="INTERE" mode="conteudo" >
+<p>
+<b>Interpretação Subjetiva</b>:<xsl:apply-templates mode="conteudo"/></p>
+    </xsl:template>
+    <xsl:template match="INTERP" mode="conteudo" >
+        <p>
+            <b>Interpretação
+                Objetiva</b> :<xsl:apply-templates mode="conteudo"/>
+        </p>
+    </xsl:template>
 </xsl:stylesheet>

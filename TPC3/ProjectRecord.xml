@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE projectRecord SYSTEM "../TPC2/ProjectRecord.dtd">
+<projectRecord id="TPC3">
+    <header>
+        <dates begin="28/10/2020" end="4/11/2020"/>
+        <titles>
+            <bigTitle> Schemas para arquivo de Arqueossitios </bigTitle>
+            <keyName> XSL e DTD para o dataset arq </keyName>
+            <title>Arquivo de Arqueossitios</title>
+            <subtitle>Schema DTD e XSLT para a validação e transformação do dataset arq</subtitle>
+        </titles>
+        <supervisor svRef="jcr@di.uminho.pt"></supervisor>
+    </header>
+    <workteam>
+        <teammate tmmRef="a84656"> Hugo Manuel Cunha</teammate>
+    </workteam>
+    <abstract>
+        <p sizePriority="2" >
+            Este trabalho tem como objetivo criar um <i>schema</i> DTD para a validação de ficheiros com a mesma estrutura do <i>dataset</i> arq bem como 
+            um ficheiro XSL para transformar os dados num site multi-pagina em HTML
+        </p>
+        <p>
+            O <i>dataset</i> arq consiste num ficheiro XML com elementos <b>ARQELEM</b> onde cada um deste descreve um arqueossitio. <br/>
+            Cada arqueossitio contém varios elementos descritivos da sua localização, interesse cultural e importância arqueológica bem como bibligrafia e outros
+            elementos descritivos de pessoas contribuintes no estudo do mesmo arqueossitio.  
+        </p>
+        <p>
+            Na geração do HTML tem-se em consideração a falta de <i>tags</i> opcionais, o agrupamento de <i>tags</i> semelhantes e uma estrutura adequada á apresentação
+            intuitiva de um documento.
+        </p>
+        <p sizePriority="7">
+            Nota1: Para a criação do ficheiro DTD primeiramente gerado automaticamente um ficheiro com recurso ás ferramentas do <i>Oxygen XML Editor</i> e de seguida
+            foi tratado de forma critica para apresentar um ficheiro DTD de acordo com as capabilidades aprendidas nas aula.<br/>
+            O objetivo era mapear todas as tags em primeiro lugar antes de desenvolver o schema.
+            
+        </p>
+        <p sizePriority="7">
+            Nota2: A <i>tag</i> LIGA oferece uma hiperligação para a <u>wikipedia</u> do TERMO dado como atributo.<br/>
+            Existem casos onde a hiperligação devolve <b>Titulo não encontrado</b> devido á má formatação do atributo.
+        </p>
+        
+    </abstract>
+    <footer>
+        <deliverables>
+            <ref link="arq.xml" type="XML"> Arquivo de arqueossitios </ref>
+            <ref link="arq.xsl" type="XSL"> Stylesheet para a tradução para um site em HTML do arquivo de arqueossitios </ref>
+            <ref link="arq-auto.dtd" type="DTD"> Schema para validação do arquivo de arqueossitios </ref>
+            <ref link="site/index.html" type="HTML"> Indice do site do Arquivo de arqueossitios </ref>
+        </deliverables>
+
+        <pubDate>3/11/2020</pubDate>
+       
+    </footer>
+</projectRecord>
