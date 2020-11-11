@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pr SYSTEM "file:/home/hc/Desktop/DAW/StandardProjectRecord.dtd">
+<pr>
+    <meta>
+        <key>Servidor HTTP de nodejs</key>
+        <title>Servidor HTTP de nodejs associado ao arqivo de arqueossitios</title>
+        <bdate>4/11/2020</bdate>
+        <edate>11/11/2020</edate>
+        <supervisor></supervisor>
+    </meta>
+    <team>
+        <member id="a84656">
+            <name>Hugo Manuel Cunha</name>
+            <email>a84656@alunos.uminho.pt</email>
+        </member>
+    </team>
+    <abstract>
+        <p>Este trabalho corresponde á implementação de um site num servidor <b>HTTP</b> <i>nodeJS</i> para o arquivo de arqueossitios</p>
+        <p>Os elementos do arquivo estão identificados com um id unico, gerado durante o processamento do <i>XML</i> com o <i>XSL</i> pela ordem de processamento, na medida em que o seu nome é <u>arq<b>id</b>.html</u></p>
+        <p>O servidor respode a requests de <i>GET</i> com index ou <u>index.html</u> ou <u>arq</u> com a página <i>index.html</i> localizada na pasta <i>site</i></p>
+        <p>Também podemos aceder diretamente a um arquivo especifico usando o seu <b>id</b> com um <i>GET</i> com <u>arqs/<b>id</b></u> </p>
+    </abstract>
+    <deliverables>
+        <link url="arq.xsl">Template XSL para a transformação do arquivo em xml</link>
+        <link url="arqserver.js">Servidor node</link>
+        <link url="site">Pasta com o site para o arquivo de arqueossitios</link>
+    </deliverables>
+</pr>
