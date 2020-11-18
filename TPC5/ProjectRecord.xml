@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pr SYSTEM "file:/home/hc/Desktop/DAW/StandardProjectRecord.dtd">
+<pr>
+    <meta>
+        <key>Servidor de relay HTTP em nodejs</key>
+        <title>Servidor HTTP em nodejs associado ao servidor json-server da escola de música</title>
+        <bdate>11/11/2020</bdate>
+        <edate>18/11/2020</edate>
+        <supervisor url="jcr@di.uminho.pt">José Carlos Ramalho</supervisor>
+    </meta>
+    <team>
+        <member id="a84656">
+            <name>Hugo Manuel Cunha</name>
+            <email>a84656@alunos.uminho.pt</email>
+        </member>
+    </team>
+    <abstract>
+        <p>Este trabalho corresponde á implementação de um site num servidor <b>HTTP</b> <i>nodeJS</i> para o arquivo da escola de música</p>
+        <p>O servidor json-server deve ser iniciado com o dataset da escola na porta <b>3001</b>, o servidor Node estará iniciado na porta 4000 </p>
+        <p>O servidor node respode a queries para: <i>/</i> com links para os indices de alunos, cursos e instrumentos;
+        <i>/alunos</i> com o indice de alunos;
+        <i>/alunos/<b><idDeAluno></b></i> com a página do aluno correspondente;
+        <i>/cursos</i> com o indice de cursos;
+        <i>/cursos/<b><idDeAluno></b></i> com a página do curso correspondente;
+        <i>/instrumentos</i> com o indice de instrumentos;
+        <i>/instrumentos/<b><idDeAluno></b></i> com a página do instrumento correspondente.
+        </p>
+        <p>Dentro da página de cada aluno há uma hiperligação para o curso e dentro da página de cada curso há uma hiperligação para o instrumento utilizado nesse curso  </p>
+    </abstract>
+    <deliverables>
+        <link url="db.json"> Dataset da Escola de música</link>
+        <link url="tpc5.js"> Servidor node</link>
+    </deliverables>
+</pr>
