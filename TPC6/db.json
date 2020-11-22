@@ -1,0 +1,24 @@
+{
+"tasks":[
+    {"dateCreated" : "21/11/2020",
+        "dateDue" : "30/11/2020",
+        "who" : "User1",
+        "what" : "DO-STUFF",
+        "type" :"TEST",
+        "done" : false
+},    {"dateCreated" : "23/11/2020",
+    "dateDue" : "30/11/2020",
+    "who" : "User1",
+    "what" : "DO-STUFF",
+    "type" :"TEST",
+    "done" : false
+},    {"dateCreated" : "1/11/2020",
+    "dateDue" : "30/11/2020",
+    "who" : "User1",
+    "what" : "DO-STUFF",
+    "type" :"TEST",
+    "done" : true
+}
+]
+
+}
