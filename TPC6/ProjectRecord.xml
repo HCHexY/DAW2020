@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pr SYSTEM "file:/home/hc/Desktop/DAW/StandardProjectRecord.dtd">
+<pr>
+    <meta>
+        <key>SPA_Task_Manager</key>
+        <title>Single Page Application sem client-side javascript para gestão de tarefas</title>
+        <bdate>17/11/2020</bdate>
+        <edate>25/11/2020</edate>
+        <supervisor url="jcr@di.uminho.pt">José Carlos Ramalho</supervisor>
+    </meta>
+    <team>
+        <member id="a84656">
+            <name>Hugo Manuel Cunha</name>
+            <email>a84656@alunos.uminho.pt</email>
+        </member>
+    </team>
+    <abstract>
+    <p>Este trabalho pretende construir uma <i>SPA</i> sem client-side javascript para um gestor de tarefas em localhost e é constituido por 3 partes : <b>Servidor json-server</b> (port 3001),<b>API em nodejs</b> (port 7777),<b>Página HTML mutável com forms</b> </p>
+    <p>O servidor é construido por base no ficheiro <i>db.json</i>,contem um objeto <b>tasks</b>
+    que representa uma lista de tarefas.
+    Cada tarefa tem um <b>id</b>, gerido automaticamente pelo json-server;
+    <b>dateCreated</b>, representa a data de criação da task, é atribuida na API ao fazer o pedido para criar nova tarefa;
+    <b>dateDue</b>, representa a data limite da tarefa;
+    <b>who</b>, representa quem deve fazer a tarefa;
+    <b>what</b>, representa o que fazer ;
+    <b>type</b>,representa o tipo da tarefa;
+    <b>done</b>, representa se uma tarefa já foi feita;
+    </p>
+    <p><i>db.json</i> é a base de dados em uso, no entanto salvaguardei um ficheiro <i>dbbackup.json</i> onde estão apenas 3 tarefas criadas manualmente para criar o json-server e um ficheiro <i>MOCK_DATA.json</i> que foi o resultado de criar automaticamente exemplos de tarefas</p>
+
+    <p>
+    A API corre sobre um servidor do módulo http e utiliza axios para fazer requests para a base de dados. Suporta vários <b>POST</b> para receber informaçoes do browser e responde sempre com a mesma página mutada consoante os pedidos do utilizador. Ao receber os <b>POST</b> faz os requests, segundo os métodos REST, para a base de dados.
+    </p>
+    <p>
+    Com a utilização de <b>w3 CSS Grid</b> a página mostra-se responsiva, está divida em 2 linhas onde a primeira tem 2 colunas, uma para o formulário de edição/criação de tasks e a outra para mostrar as tasks para fazer, a segunda linha mostra todas as tasks já feitas na base de dados.  
+    Estas 3 secções incluem <b>HTTP Forms</b> para comunicar com a API e, embora a action seja sempre para o url root, a API consegue tratar de forma separada os pedidos devido á inclusão de itens <i>hidden</b> com valores diferentes. Deste modo mantem-se um sistema <b>REST</b> pois passa todos os dados necessários no body do <b>POST</b>.
+    </p>
+    <p>
+    Mostrando os dados em tabelas do <b>W3 CSS</b> existe a opção de editar qualquer tarefa feita ou por fazer e ainda ordenar as tarefas por fazer por ordem ascendente ou desecendente em relação a qualquer atributo das tarefas. Isto é fáilmente escalável por ser conseguido ao simplesmente colocar numa variável <i>hidden</i> a ordem desejada para a API fazer pedidos à base de dados.
+    </p>
+    <p>Ainda existe um botão para apagar todas as tarefas feitas da base de dados.</p>
+    </abstract>
+    <deliverables>
+        <link url="db.json"> Dataset em utilização</link>
+        <link url="dbbackup.json">Backup do Dataset inicial</link>
+        <link url="MOCK_DATA.json"> Dataset gerado automaticamente</link>
+        <link url="tasks.js"> API node js</link>
+        <link url="static.js"> Funçoes uteis de tratamento de materiais estáticos</link>
+        <link url="w3.css"> W3 CSS</link>
+        <link url="favicon.png">Favicon</link>
+    </deliverables>
+</pr>

@@ -5,7 +5,7 @@
   "main": "tasks.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev" : "nodemon tasks.js",
+    "dev" : "nodemon --verbose --ignore 'db.json' --ignore './.node_modules/*' --ignore './.history/*' tasks.js",
     "go" : "node tasks.js"
   },
   "author": "hc",
