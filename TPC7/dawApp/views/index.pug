@@ -1,0 +1,13 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+  a(href="/students")
+    address Ver lista de Alunos
+  a(href="/students/registar")
+    address Registar Aluno
+  a(href="/students/delete")
+    address Eliminar Aluno
+  a(href="/students/edit")
+    address Editar Aluno

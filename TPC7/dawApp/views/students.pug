@@ -1,0 +1,27 @@
+extends layout
+
+block content
+    .w3-card-4
+      header.w3-container.w3-teal
+        h3.w3-left Students List (DAW2020)
+      if list.length > 0
+        .w3-container 
+          table.w3-table-all
+            tr 
+              th Number
+              th Name
+              th Git
+            each s in list
+              tr
+                td= s.numero
+                td= s.nome
+                td= s.git
+      else
+        .w3-container
+          p There are no students...
+      footer.w3-container.w3-teal
+        a(href="/")
+          address [Voltar ao inicio]
+        address Gerado por dawApp :: 2020-Nov, jcr
+
+  
