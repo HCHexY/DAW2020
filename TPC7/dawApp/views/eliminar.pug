@@ -6,25 +6,13 @@ block content
         h3.w3-left Registar Student (DAW2020)
       .w3-container
       
-      form(action="/students", method="post")
+      form(action="/students/delete", method="post")
         .w3-text-teal
           label Numero de aluno
           .w3-input.w3-border.w3-light-grey
             input(type="text", name="numero")
-        .w3-text-teal
-          label Nome
-          .w3-input.w3-border.w3-light-grey
-            input(type="text", name="nome") 
-        .w3-text-teal
-          label Git
-          .w3-input.w3-border.w3-light-grey
-            input(type="text", name="git")  
-        .w3-text-teal
-          label TPCs (Introduzir na forma de lista de binários ex: [1,0,1,0,1])
-          .w3-input.w3-border.w3-light-grey
-            input(type="text", name="tpc")
         .w3-button.w3-border.w3-light-grey
-          input(type="submit", value="Submeter")
+          input(type="submit", value="Eliminar")
       footer.w3-container.w3-teal
         a(href="/")
           address [Voltar ao inicio]

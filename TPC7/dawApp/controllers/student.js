@@ -25,8 +25,13 @@ module.exports.insert = student => {
 
 // Updates Student
 module.exports.update = (id,student) => {
-    console.log(id);
-    nid = ""+id;
-    return Student.findByIdAndUpdate(nid,student);
+
+    return Student.findOneAndUpdate(id,student);
+     
+}
+
+
+module.exports.delete = (id) => {
+    return Student.remove({"numero":id});
      
 }

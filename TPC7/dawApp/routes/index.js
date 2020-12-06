@@ -15,7 +15,7 @@ router.get('/students', function(req, res) {
     .catch(err => res.render('error', {error: err}))
   ;
 });
-
+//GET EDIT
 router.get('/students/edit/:id', function(req, res) {
   // Data retrieve
   var eId= req.params.id
@@ -26,37 +26,33 @@ router.get('/students/edit/:id', function(req, res) {
   ;
 });
 
+//EDIT 
 router.post('/students/edit', function(req, res) {
   // Data retrieve
-  var tpclist=[];
-  req.body.tpc.split(',').forEach(element => {
-    if(/(0|1)/.test(element))
-    tpclist.push(element);
-  });
-  var newStudent;
-Student.lookUp(req.body.numero)
-.then(data=>{
-  newStudent =({"numero" : req.body.numero,
-                              "nome" : req.body.nome,
-                              "git" :req.body.git,
-                              "tpc" : tpclist
-                              
-                            })
-  Student.update(data._id,newStudent)
-  .then(data=>{console.log("pRINT DATA :"+data); var tpcl=[];
-    data.tpc.split(',').forEach(element => {
-      if(/(0|1)/.test(element))
-      tpcl.push(element);
-    });
-    data.tpc=tpcl;
-     res.render('student',{student:data})})   
+  console.log("'EditPOST' req.body.tpc="+req.body.tpc);
+  var badParse =JSON.parse(req.body.tpc);
+  var newStudent = req.body;
+  newStudent.tpc = badParse;
+  
+  Student.update({"numero":newStudent.numero},newStudent)
+  .then(data =>{
+    console.log("pRINT DATA :"+data); 
+    res.render('student',{student:newStudent})})   
   .catch(err => res.render('error', {error: err}))                       
-                      
-})
-.catch(err => res.render('error', {error: err}));
 
-
-
+});
+//GET DELETE
+router.get('/students/delete', function(req, res) {
+  res.render('eliminar');
+});
+//DELETE
+router.post('/students/delete', (req,res)=>{
+x=req.body.numero;
+if(x==undefined){res.render('error'),{error : {stack: "Numero de Aluno Invalido" }}}
+else
+Student.delete(x)
+.then(data=>{ res.redirect("/")})
+.catch(err => res.render('error', {error: err}))
 });
 
 router.post('/students', function(req, res) {

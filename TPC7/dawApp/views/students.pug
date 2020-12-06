@@ -11,11 +11,15 @@ block content
               th Number
               th Name
               th Git
+              th Edit
             each s in list
               tr
-                td= s.numero
+                td 
+                  a(href="./students/"+s.numero) #{s.numero} 
                 td= s.nome
                 td= s.git
+                td
+                  a(href="./students/edit/"+s.numero) [EDITAR]
       else
         .w3-container
           p There are no students...

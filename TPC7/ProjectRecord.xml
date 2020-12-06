@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pr SYSTEM "file:/home/hc/Desktop/DAW/StandardProjectRecord.dtd">
+<pr>
+    <meta>
+        <key>Servidor com Express, Pug e mongoDB</key>
+        <title>Servidor para gestão de alunos usando Express para requests, PUG para a interface e mongoDB para base de dados </title>
+        <bdate>25/11/2020</bdate>
+        <edate>2/12/2020</edate>
+        <supervisor url="jcr@di.uminho.pt">José Carlos Ramalho</supervisor>
+    </meta>
+    <team>
+        <member id="a84656">
+            <name>Hugo Manuel Cunha</name>
+            <email>a84656@alunos.uminho.pt</email>
+        </member>
+    </team>
+    <abstract>
+    <p>Este trabalho pretende construir um servidor para um gestor de alunos em localhost e é constituido por 3 partes : <b>Servidor mongoDB</b>,<b>API em nodejs com Express</b> (port 7700),<b>Página HTML feita com PUG</b> </p>
+    <p>O servidor é construido por base no ficheiro disponibilizado na aula, contem uma collection <b>students</b>
+    que representa uma lista de alunos.
+    Cada aluno tem um <b>_id</b>, gerido automaticamente pelo mongoDB;
+    <b>numero</b>, representa o numero de aluno;
+    <b>nome</b>, representa o nome do aluno;
+    <b>git</b>, representa o repositório GIT dos tpcs de cada aluno;
+    <b>tpc</b>, representa uma lista de tpcs identificados como feitos (1) ou por fazer (0) ;
+
+    <p>
+    A API corre sobre um servidor gerado em aula com Express e utiliza mongoose para fazer requests para a base de dados. O modelo em mongoose já estava feito, no entanto foi necessário adicionar algumas funcionalidades no controller como a de eliminar e editar aluno.
+    No <b>index.js</b> foram adicionadas rotas para responder aos pedidos de obter lista de alunos, obter, editar e eliminar aluno.
+    </p>
+    <p>
+    A utilização de PUG foi dificil no inicio no entanto apresenta-se como uma boa ferramenta de geração de páginas HTML</p>
+    </p>
+    </abstract>
+    <deliverables>
+        <link url="dawApp"> Servidor</link>
+    </deliverables>
+</pr>
