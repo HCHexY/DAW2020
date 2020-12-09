@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pr SYSTEM "file:/home/hc/Desktop/DAW/StandardProjectRecord.dtd">
+<pr>
+    <meta>
+        <key>Download, upload de ficheiros ,Jquery</key>
+        <title>Servidor express para armazenamento e consulta de imagens</title>
+        <bdate>2/12/2020</bdate>
+        <edate>9/12/2020</edate>
+        <supervisor url="jcr@di.uminho.pt">José Carlos Ramalho</supervisor>
+    </meta>
+    <team>
+        <member id="a84656">
+            <name>Hugo Manuel Cunha</name>
+            <email>a84656@alunos.uminho.pt</email>
+        </member>
+    </team>
+    <abstract>
+    <p>Este trabalho pretende construir um servidor para imagens</p>
+    <p>Depois de produzirmos um servidor para armazenamento e consulta de imagens durante a aula, o objetivo seria expandir este conceito para podermos fazer upload de multiplos ficheiros num só <b>POST</b></p>
+    <p>Neste trabalho foi adicionada uma função em <b>JQuery</b> que expande a página atual de forma a permitir incluir no formulário mais campos para mais imagens.</p>
+    <p>As modificações incidiram nesta funçao para mutar o DOM, acrescentar aos campos de descrição e do ficheiro o atributo <i>multiple</i>, mudar a função do pipeline horizontal para o POST do formulário de forma a fazer parse ao campo <b>myFile</b> como um array de <i>file</i> do multer e também percorrer o array do campo <i>desc</i> associando a descrição á imagem correspondete antes de colocar no armazenamento </p>
+    
+    <p>É de notar que poderiamos implementar uma função para limpar os ficheiros temporários</p>
+ 
+    </abstract>
+    <deliverables>
+        <link url="server"> Servidor</link>
+        <link url="dbFiles.json"> Ficheiro de armazenamento (Base de dados)</link>
+        <link url="public/imagens.js"> Funções JQuery</link>
+    </deliverables>
+</pr>
